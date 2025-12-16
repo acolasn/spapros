@@ -1,3 +1,25 @@
+# Antonio's fork
+
+You're free to customise the original version your way! This is my fork for using spapros in a proyect for the Znamenskiy lab. It depends on [some Znamenskiy code](https://github.com/znamlab/iss-analysis.git) for formatting the [Yao 2021 smartseq RNAseq datasets](https://brain-map.org/our-research/cell-type-taxonomies/mouse-isocortex-hippocampal-formation-taxonomy) and some Allen Institute code for the Yao 2023 10X datset. It should install nicely with the project, along with other stuff that you could need. 
+
+### Downloading the Yao, 2021 smartseq data
+
+You can get started from [here](https://brain-map.org/our-research/cell-type-taxonomies/mouse-isocortex-hippocampal-formation-taxonomy). You will get 8.7Gb of a `h5ad` matrix, which you can read using the `io` module of `iss_analysis`, the Znamenskiy code I mentioned. In short:
+
+```
+ref = io.load_yao_2021_to_anndata(datapath, area, subclasses)
+
+```
+
+Where area is a target area in the Allen terminology (for example, ALM) and subclasses are a list of subclasses of interest (for example, `['Sst', 'Pvalb']`)
+
+### Using my code
+
+You should be able to run the `build_panel` scripts straight away. I set the Rob one to not care about PCA genes. You can launch them as batch jobs through `send_build_panel.sh`, in which the only useful bt is the fact that I'm telling spapros to parallelize across multiple jobs, which makes things faster. 
+
+
+
+
 # spapros
 
 [![PyPI](https://img.shields.io/pypi/v/spapros.svg)](https://pypi.org/project/spapros/)
